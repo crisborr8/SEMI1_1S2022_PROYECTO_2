@@ -1,0 +1,25 @@
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}
+
+.buttons-div-container{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.particle-effect-button{
+    background-color: #121019;
+    color: #fff;
+    font-size: 1.2rem;
+    border: 0;
+    padding: 1.5rem 3rem;
+    border-radius: 5;
+    cursor: pointer;
+}
