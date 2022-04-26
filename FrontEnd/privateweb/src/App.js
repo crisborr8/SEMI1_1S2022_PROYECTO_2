@@ -16,7 +16,7 @@ class App extends Component {
       return(
           <>
           {this.state.isLogged === false && <Login isLogged={this.manejoIsLogged}>{this.state.isLogged}</Login>}
-          {this.state.isLogged === true && <Inicio></Inicio>}
+          {this.state.isLogged === true && <Inicio isLogged={this.manejoIsLogged}></Inicio>}
           </>
       )
   }

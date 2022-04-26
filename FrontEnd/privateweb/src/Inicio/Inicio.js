@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { TabPanel, useTabs } from "react-headless-tabs";
 import { TabSelector } from './TabSelector.tsx';
 import './Inicio.css'
+import Subir from './Subir/Subir';
+import Editar from './Editar/Editar';
+import Registros from './Registros/Registros';
 
-function Inicio() {
-    const [selectedTab, setSelectedTab] = useTabs(['Subir', 'Editar', 'Registros']);
+const Inicio = (props) => {
+    const [selectedTab, setSelectedTab] = useTabs(['Subir', 'Editar', 'Registros', 'Salir']);
     return (
         <>
         <nav className="flex border-b border-gray-300">
@@ -26,16 +29,22 @@ function Inicio() {
           >
             Registros
           </TabSelector>
+          <TabSelector
+            isActive={selectedTab === 'Salir'}
+            onClick={() => props.isLogged(false)}
+          >
+            Salir
+          </TabSelector>
         </nav>
         <div className="p-4">
           <TabPanel hidden={selectedTab !== 'Subir'}>
-          Subir
+          <Subir/>
           </TabPanel>
           <TabPanel hidden={selectedTab !== 'Editar'}>
-          Editar
+          <Editar/>
           </TabPanel>
           <TabPanel hidden={selectedTab !== 'Registros'}>
-          Registros
+          <Registros/>
           </TabPanel>
         </div>
       </>
