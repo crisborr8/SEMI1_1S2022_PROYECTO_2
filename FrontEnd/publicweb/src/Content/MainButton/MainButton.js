@@ -22,9 +22,6 @@ class MainButton extends Component {
 
         return (
             <>
-                <video autoPlay muted loop id="myVideo">
-                    <source src="./MainBackground.mp4" type="video/mp4"/>
-                </video>
                 <div
                 className="buttons-div-container"
                 >
