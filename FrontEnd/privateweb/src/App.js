@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Inicio from './Inicio/Inicio';
+import Login from './Login/Login';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+      super(props);
+      this.state  = {
+        isLogged: false
+      }
+  }
+  manejoIsLogged = (logged) => {
+    this.setState({isLogged: logged})
+  }
+  render() {
+      return(
+          <>
+          {this.state.isLogged === false && <Login isLogged={this.manejoIsLogged}>{this.state.isLogged}</Login>}
+          {this.state.isLogged === true && <Inicio isLogged={this.manejoIsLogged}></Inicio>}
+          </>
+      )
+  }
 }
 
 export default App;
