@@ -1,11 +1,11 @@
 const mysql = require('mysql')
 
 var db = mysql.createConnection({
-    host: 'faunadex-p2.ciojpza4esma.us-east-1.rds.amazonaws.com',
+    host: process.env.HOST,
     port: 3306,
-    user: 'admin',
-    password: 'uno2tres4',
-    database: 'PROYECTO',
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE,
     multipleStatements: true
 })
 
