@@ -7,6 +7,10 @@ const s3 = new aws.S3({
 })
 const controller = {}
 
+controller.hello = async (req, res) => {
+    return res.status(200).send({ msg: 'hello world' })
+}
+
 controller.login = async (req, res) => {
     let usr = req.body.usr
     let psw = req.body.psw
@@ -14,9 +18,9 @@ controller.login = async (req, res) => {
         async (err, result) => {
         if (err) {
             console.log(err)
-            return res.status(200).send({ msg: 'true' })
+            return res.status(200).send({ msg: 'false' })
         }
-        return res.status(200).send(result[0])
+        return res.status(200).send({ msg: 'true' })
     })
 }
 
@@ -32,10 +36,10 @@ controller.new_criminal = async (req, res) => {
         async (err, result) => {
         if (err) {
             console.log(err)
-            return res.status(200).send({ msg: 'true' })
+            return res.status(200).send({ msg: 'false' })
         }
         await subir_foto(fotos, nombre)
-        return res.status(200).send({ msg: 'false' })
+        return res.status(200).send({ msg: 'true' })
     })
 }
 
@@ -70,9 +74,9 @@ controller.get_criminales = async (req, res) => {
         async (err, result) => {
         if (err) {
             console.log(err)
-            return res.status(200).send({ msg: 'true' })
+            return res.status(200).send({ msg: 'false' })
         }
-        return res.status(200).send({ msg: 'false', criminales: result })
+        return res.status(200).send({ msg: 'true', criminales: result })
     })
 }
 
@@ -90,7 +94,7 @@ controller.get_criminal = async (req, res) => {
         async (err, result) => {
         if (err) {
             console.log(err)
-            return res.status(200).send({ msg: 'true' })
+            return res.status(200).send({ })
         }
         criminal.nombre = result[0].name
         criminal.delito = result[0].delito
@@ -103,7 +107,7 @@ controller.get_criminal = async (req, res) => {
                 console.log(err)
             }
             criminal.fotos = result
-            return res.status(200).send({ msg: 'false', criminales: criminal })
+            return res.status(200).send(criminal)
         })
     })
 }
@@ -119,9 +123,9 @@ controller.edit_criminal = async (req, res) => {
         async (err, result) => {
         if (err) {
             console.log(err)
-            return res.status(200).send({ msg: 'true' })
+            return res.status(200).send({ msg: 'false' })
         }
-        return res.status(200).send({ msg: 'false' })
+        return res.status(200).send({ msg: 'true' })
     })
 }
 
